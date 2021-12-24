@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './App.css';
-
+{
 // function App() {
 
 //   function loginForm(event) {
@@ -27,6 +27,7 @@ import './App.css';
 //       </div>
 //   );
 // }
+}
 
 class App extends Component {
   loginForm() {
@@ -36,8 +37,22 @@ class App extends Component {
   render() {
     return (
       <div>
-        <input ref={ref => { this.inputRef = ref; }} />
-        <button onClick={this.onClick.bind(this)}>Click to Focus</button>
+        <div className='container'>
+           <h1>Login Form</h1>
+           <form onSubmit={this.loginForm.bind(this)}>
+             <div>
+              <label>Email Address</label>
+               <input ref={ref => { this.inputRef = ref; }} name='email' type="email" ref={node => (this.email)} className='form-control' />
+             </div>
+             <div>
+               <label>Password</label>
+               <input ref={ref => { this.inputRef = ref; }} name='password' type="password" ref={node => (this.password)} className='form-control' />
+             </div>
+             <div>
+               <button type="submit" className='btn btn-primary'>Login</button>
+             </div>
+           </form>
+       </div>
       </div>
     );
   }

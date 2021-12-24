@@ -3,13 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle'
 
-import App from './App';
+import Header from './components/Header';
+import Carousel from './components/Carousel';
+import Offers from './components/Offers';
+import Footer from './components/Footer';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Header />
+      <div className="container">
+            <Carousel />
+      </div>
+    <Footer />
   </React.StrictMode>,
   document.getElementById('root')
 );
