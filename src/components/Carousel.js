@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Carousel({ carousels }) {
     return (
+        <>
         <div id="carousel" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active">
@@ -50,6 +51,9 @@ export default function Carousel({ carousels }) {
                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
                 <span className="sr-only">Next</span>
             </button>
+
         </div>
+        <br /><br />
+        </>
     )
 }
