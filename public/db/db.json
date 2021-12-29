@@ -1,0 +1,59 @@
+{
+    "api": {
+        "carousel": [
+            {
+                "heading": "Hair Care Essentials",
+                "description": "Gorgeous Hair Everyday",
+                "image": "images/slider-5.png"
+            },
+            {
+                "heading": "Skin Care",
+                "description": "Big Beauty Anniversary Sale",
+                "image": "images/slider-2.png"
+            },
+            {
+                "heading": "Winter Skin Care",
+                "description": "Up To 50% Off",
+                "image": "images/slider-4.png"
+            }
+        ],
+        "cards": [
+            {
+                "heading": "BATHING ESSENTIALS",
+                "description": "Cold Weather Bath & Body Care",
+                "percent_off": "Up To 50% Off",
+                "image": "images/slider-1.png"
+            },
+            {
+                "heading": "BIOTIQUE",
+                "description": "Ayurvedic Skin & Hair Care",
+                "percent_off": "Up To 50% Off",
+                "image": "images/slider-2.png"
+            },
+            {
+                "heading": "MYGLAMM",
+                "description": "Premium Makeup",
+                "percent_off": "100% Cruelty Free",
+                "image": "images/slider-3.png"
+            },
+            {
+                "heading": "OLAY",
+                "description": "Result Driven Skin Care",
+                "percent_off": "Up To 25% Off",
+                "image": "images/slider-4.png"
+            },
+            {
+                "heading": "CETAPHIL",
+                "description": "Essentials For Sensitive Skin",
+                "percent_off": "Up To 15% Off",
+                "image": "images/slider-5.png"
+            },
+            {
+                "heading": "GIOVANNI",
+                "description": "Salon Inspired Hair Care",
+                "percent_off": "Up To 60% Off",
+                "image": "images/slider-6.png"
+            }
+        ]
+    }
+}

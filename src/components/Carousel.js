@@ -1,46 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios'
 
 
-export default function Carousel({ carousels }) {
+export default function Carousel() {
+    const [carousels, setcarousels] = useState([])
+
+    useEffect(() => {
+        axios.get('/db/db.json')
+          .then(({ data }) => {
+            data = data.api
+            setcarousels(data.cards);
+        
+          }, (err) => {
+            console.log("Error in Carousels");
+          })
+      }, [])
+
     return (
         <>
-        <div id="carousel" className="carousel slide" data-ride="carousel">
+        <div id="carousel" className="carousel slide mb-4" data-ride="carousel">
             <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <img src="images/slider-1.png" className="d-block carousel-image" alt="..." />
-                    <div className="carousel-caption d-none d-block">
-                        <h5>Beauty Queen 1</h5>
-                        <p>This is for Perfection in Beauty 1</p>
-                    </div>
-                </div>
-                <div className="carousel-item">
-                    <img src="images/slider-2.png" className="d-block carousel-image" alt="..." />
-                    <div className="carousel-caption d-none d-block">
-                        <h5>Beauty Queen 2</h5>
-                        <p>This is for Perfection in Beauty 2</p>
-                    </div>
-                </div>
-                <div className="carousel-item">
-                    <img src="images/slider-3.png" className="d-block carousel-image" alt="..." />
-                    <div className="carousel-caption d-none d-block">
-                        <h5>Beauty Queen 3</h5>
-                        <p>This is for Perfection in Beauty 3</p>
-                    </div>
-                </div>
-                <div className="carousel-item">
-                    <img src="images/slider-4.png" className="d-block carousel-image" alt="..." />
-                    <div className="carousel-caption d-none d-block">
-                        <h5>Beauty Queen 4</h5>
-                        <p>This is for Perfection in Beauty 4</p>
-                    </div>
-                </div>
-
-                <ol className="carousel-indicators">    
-                    <li data-target="#carousel" data-slide-to="0" className="active"></li>
-                    <li data-target="#carousel" data-slide-to="1" className="active"></li>
-                    <li data-target="#carousel" data-slide-to="2" className="active"></li>
-                    <li data-target="#carousel" data-slide-to="3" className="active"></li>
+                {
+                    carousels.map((carousel, index) => {
+                        return <>
+                            <div className={(index === 0) ? "carousel-item active" : "carousel-item"}>
+                                <img src={carousel.image} className="d-block carousel-image" alt="..." />
+                                <div className="carousel-caption d-none d-block">
+                                    <h5>{carousel.heading}</h5>
+                                    <p>{carousel.description}</p>
+                                </div>
+                            </div>
+                        </>
+                    })
+                }
+                <ol className="carousel-indicators">
+                    {
+                        carousels.map((carousel, index) => {
+                            return <>
+                                <li data-target="#carousel" data-slide-to={index} className={(index === 0) ? "active" : ""}></li>
+                            </>
+                        })
+                    }
                 </ol>
             </div>
             <button className="carousel-control-prev" type="button" data-target="#carousel" data-slide="prev">
@@ -51,9 +52,7 @@ export default function Carousel({ carousels }) {
                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
                 <span className="sr-only">Next</span>
             </button>
-
         </div>
-        <br /><br />
         </>
     )
 }
